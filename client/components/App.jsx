@@ -1,14 +1,15 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-function App () {
+import Home from './Home'
+
+function App() {
   return (
     <>
       <header className="header">
-        <h1>My Collection</h1>
+        <h1>My Video Game Collection</h1>
       </header>
-      <section className="main">
-        {/* add your code here */}
-      </section>
+      <div className="main"></div>
     </>
   )
 }
