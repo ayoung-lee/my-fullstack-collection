@@ -7,7 +7,7 @@ import VideoGame from './VideoGame'
 
 export default function VideoGames() {
   const videoGames = useSelector((state) => state.videoGames)
-  console.log('here', videoGames)
+
   const dispatch = useDispatch()
 
   useEffect(() => {

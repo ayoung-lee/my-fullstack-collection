@@ -1,6 +1,10 @@
 // Maintain local state
 
-import { FETCH_VIDEOGAMES_SUCCESS, ADD_VIDEOGAMES_SUCCESS } from '../actions'
+import {
+  FETCH_VIDEOGAMES_SUCCESS,
+  ADD_VIDEOGAMES_SUCCESS,
+  DEL_VIDEOGAMES_SUCCESS,
+} from '../actions'
 
 const initialState = []
 
@@ -15,6 +19,9 @@ const videoGamesReducer = (state = initialState, action) => {
 
     case ADD_VIDEOGAMES_SUCCESS:
       return [...state, action.payload]
+
+    case DEL_VIDEOGAMES_SUCCESS:
+      return state.filter((game) => game.id !== action.id)
 
     default:
       return state

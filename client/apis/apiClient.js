@@ -16,3 +16,13 @@ export function addNewVideoGame(newGame) {
       return res.body
     })
 }
+
+export function delVideoGame(id) {
+  console.log('delete id is', id)
+  return request
+    .del(rootUrl + '/videogames')
+    .send(id)
+    .then((res) => {
+      return res.body
+    })
+}

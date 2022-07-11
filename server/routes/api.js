@@ -27,12 +27,24 @@ router.post('/', (req, res) => {
   }
   db.addVideoGame(videoGame)
     .then((results) => {
-      res.json({ videoGames: results.map((videoGame) => videoGame.name) })
+      res.json(results.map((videoGame) => videoGame.name))
       return null
     })
     .catch((err) => {
       console.log(err)
       res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
+router.delete('/', (req, res) => {
+  const id = req.body
+  db.delVideoGame(id)
+    .then((videoGame) => {
+      res.status(200).send(`${videoGame} deleted`)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).send('Server Error')
     })
 })
 
