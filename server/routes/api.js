@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   setTimeout(() => {
     db.getVideoGames()
       .then((results) => {
-        res.json({ videoGames: results.map((videoGame) => videoGame.title) })
+        res.json(results)
         return null
       })
       .catch((err) => {

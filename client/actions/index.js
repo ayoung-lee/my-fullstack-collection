@@ -1,5 +1,7 @@
 export const FETCH_VIDEOGAMES_SUCCESS = 'FETCH_VIDEOGAMES_SUCCESS'
 export const FETCH_VIDEOGAMES_PENDING = 'FETCH_VIDEOGAMES_PENDING'
+export const ADD_VIDEOGAMES_PENDING = 'ADD_VIDEOGAMES_PENDING'
+export const ADD_VIDEOGAMES_SUCCESS = 'ADD_VIDEOGAMES_SUCCESS'
 export const SET_ERROR = 'SET_ERROR'
 
 import { getAllVideoGames, addNewVideoGame } from '../apis/apiClient'
@@ -14,6 +16,19 @@ export const fetchVideoGamesSuccess = (videoGames) => {
   return {
     type: FETCH_VIDEOGAMES_SUCCESS,
     payload: videoGames,
+  }
+}
+
+export function addVideoGamePending() {
+  return {
+    type: ADD_VIDEOGAMES_PENDING,
+  }
+}
+
+export function addVideoGameSuccess(videoGame) {
+  return {
+    type: ADD_VIDEOGAMES_SUCCESS,
+    payload: videoGame,
   }
 }
 

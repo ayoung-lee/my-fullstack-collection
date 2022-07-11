@@ -1,6 +1,7 @@
 import React from 'react'
 // import VideoGames from './VideoGames'
 import AddVideoGame from './AddVideoGame'
+import VideoGames from './VideoGames'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <h1>My Video Game Collection</h1>
       </header>
       <div className="main">
-        {/* <VideoGames /> */}
+        <VideoGames />
         <AddVideoGame />
       </div>
     </>
