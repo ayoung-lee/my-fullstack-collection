@@ -7,6 +7,6 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 const videoGames = require('./routes/api')
-server.use('/api/v1/videogames/', videoGames)
+server.use('/api/v1/videogames', videoGames)
 
 module.exports = server

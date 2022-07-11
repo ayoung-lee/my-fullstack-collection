@@ -1,7 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { fetchVideoGames, addVideoGame } from '../actions'
 
 export default function AddVideoGame() {
   const [game, setGame] = useState('')
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchVideoGames)
+  }, [])
+
+  function handleChange(e) {
+    setGame(e.target.value)
+  }
+
+  function handleClick() {
+    dispatch(addVideoGame(game))
+    setGame('')
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -18,7 +35,7 @@ export default function AddVideoGame() {
         value={game}
         onChange={(e) => setGame(e.target.value)}
       />
-      <button>Click Me!</button>
+      <button onClick={handleClick}>Click Me!</button>
     </form>
   )
 }
