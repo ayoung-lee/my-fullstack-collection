@@ -39,7 +39,7 @@ exports.seed = async function (knex) {
       genre: 'Action Adventure, Survival Horror',
       platform: 'ps4',
       image:
-        'https://upload.wikimedia.org/wikipedia/en/thumb/5/58/The_Last_of_Us_Remastered.jpg/250px-The_Last_of_Us_Remastered.jpg',
+        'https://image.api.playstation.com/vulcan/img/rnd/202011/1020/FKgazVvG7BcWouCr39mIiXkW.png',
     },
     {
       id: '5',

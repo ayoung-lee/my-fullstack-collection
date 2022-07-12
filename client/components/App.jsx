@@ -1,7 +1,7 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-
-import Home from './Home'
+// import VideoGames from './VideoGames'
+import AddVideoGame from './AddVideoGame'
+import VideoGames from './VideoGames'
 
 function App() {
   return (
@@ -9,7 +9,10 @@ function App() {
       <header className="header">
         <h1>My Video Game Collection</h1>
       </header>
-      <div className="main"></div>
+      <div className="main">
+        <VideoGames />
+        <AddVideoGame />
+      </div>
     </>
   )
 }
