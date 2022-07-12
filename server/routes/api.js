@@ -20,14 +20,16 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const videoGame = req.body
-  if (!videoGame) {
-    res.status(500).json({ message: 'New game was invalid' })
-    return null
-  }
-  db.addVideoGame(videoGame)
-    .then((results) => {
-      res.json(results.map((videoGame) => videoGame.name))
+  const { title, genre, platform } = req.body
+  // if (!NewGame) {
+  //   res.status(500).json({ message: 'New game was invalid' })
+  //   return null
+  // }
+  db.addVideoGame({ title, genre, platform })
+    .then((NewGameId) => {
+      console.log('This is coming from routes', NewGameId)
+      res.json(NewGameId) // passing a callback to a promise
+      // callback to execute if things work out well
       return null
     })
     .catch((err) => {

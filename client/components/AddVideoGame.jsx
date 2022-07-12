@@ -5,6 +5,7 @@ import { fetchVideoGames, addVideoGame } from '../actions'
 
 export default function AddVideoGame() {
   const [game, setGame] = useState('')
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -12,30 +13,46 @@ export default function AddVideoGame() {
   }, [])
 
   function handleChange(e) {
-    setGame(e.target.value)
-  }
-
-  function handleClick() {
-    dispatch(addVideoGame(game))
-    setGame('')
+    setGame({
+      ...game,
+      [e.target.name]: e.target.value,
+    })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(game)
+    dispatch(addVideoGame(game))
+    setGame('')
+    dispatch(fetchVideoGames())
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="videoGameName">Video Games</label>
+      <label htmlFor="title">Title:</label>
       <input
-        id="videoGameName"
+        id="title"
         type="text"
-        name="videoGames"
-        value={game}
-        onChange={(e) => setGame(e.target.value)}
+        name="title"
+        value={game.title}
+        onChange={handleChange}
       />
-      <button onClick={handleClick}>Click Me!</button>
+      <label htmlFor="genre">Genre:</label>
+      <input
+        type="text"
+        name="genre"
+        id="genre"
+        value={game.genre}
+        onChange={handleChange}
+      />
+      <label htmlFor="platform">Platform:</label>
+      <input
+        type="text"
+        name="platform"
+        id="platform"
+        value={game.platform}
+        onChange={handleChange}
+      />
+      <button type="submit">Click Me!</button>
     </form>
   )
 }

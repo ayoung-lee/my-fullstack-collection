@@ -8,12 +8,13 @@ export function getAllVideoGames() {
   })
 }
 
-export function addNewVideoGame(newGame) {
+export function addNewVideoGame(game) {
+  console.log('This is from apiClient', game)
   return request
     .post(rootUrl + '/videogames')
-    .send({ newGame })
+    .send(game)
     .then((res) => {
-      return res.body
+      return JSON.stringify(res.body)
     })
 }
 

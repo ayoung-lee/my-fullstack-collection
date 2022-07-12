@@ -34,7 +34,7 @@ export function addVideoGamePending() {
 export function addVideoGameSuccess(videoGame) {
   return {
     type: ADD_VIDEOGAMES_SUCCESS,
-    videoGame,
+    payload: videoGame,
   }
 }
 
@@ -64,11 +64,13 @@ export const fetchVideoGames = () => {
   }
 }
 
-export function addVideoGame(newGame) {
+export function addVideoGame(game) {
+  console.log('argument for addVideoGame', game) // receiving in console
   return (dispatch) => {
-    return addNewVideoGame(newGame)
+    return addNewVideoGame(game)
       .then((videoGames) => {
-        dispatch(fetchVideoGamesSuccess(videoGames))
+        console.log('This is coming from actions', videoGames)
+        dispatch(addVideoGameSuccess(videoGames))
         return null
       })
       .catch((err) => {
